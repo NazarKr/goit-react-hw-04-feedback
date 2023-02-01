@@ -1,42 +1,42 @@
 import React from 'react';
 import { FeedbeckText, FeedbackSpan } from './feedback.styled';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Statistics = ({
-  good,
-  neutral,
-  bad,
+  Good,
+  Neutral,
+  Bed,
   total,
-  positivePercentage,
+  positiveFeedback,
   title,
 }) => (
   <>
     {title && <h3>{title}</h3>}
     <FeedbeckText>
-      Good: <FeedbackSpan>{good}</FeedbackSpan>
+      Good: <FeedbackSpan>{Good}</FeedbackSpan>
+    </FeedbeckText>
+   <FeedbeckText>
+      Neutral: <FeedbackSpan>{Neutral}</FeedbackSpan>
     </FeedbeckText>
     <FeedbeckText>
-      Neutral: <FeedbackSpan>{neutral}</FeedbackSpan>
-    </FeedbeckText>
-    <FeedbeckText>
-      Bad: <FeedbackSpan>{bad}</FeedbackSpan>
+      Bad: <FeedbackSpan>{ Bed}</FeedbackSpan>
     </FeedbeckText>
     <FeedbeckText>
       Total Feedback: <FeedbackSpan>{total} </FeedbackSpan>
     </FeedbeckText>
     <FeedbeckText>
-      Positive feedback: <FeedbackSpan>{positivePercentage} % </FeedbackSpan>
+      Positive feedback: <FeedbackSpan>{positiveFeedback} % </FeedbackSpan>
     </FeedbeckText>
   </>
 );
 
 export default Statistics;
 
-Statistics.propTypes = {
-  total: PropTypes.number.isRequired,
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
-  title: PropTypes.string,
-}
+// Statistics.propTypes = {
+//   total: PropTypes.number.isRequired,
+//   good: PropTypes.number.isRequired,
+//   neutral: PropTypes.number.isRequired,
+//   bad: PropTypes.number.isRequired,
+//   positivePercentage: PropTypes.number.isRequired,
+//   title: PropTypes.string,
+// }
