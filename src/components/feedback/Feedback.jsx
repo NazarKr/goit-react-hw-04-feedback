@@ -13,8 +13,6 @@ const Feedback = () => {
     bad: 0
   });
 
-  const optionKey = Object.keys(feedback);
-
   const onLeaveFeedback = feedback => {
     setFeedback(prevState => {
       const value = prevState[feedback];
@@ -25,12 +23,11 @@ const Feedback = () => {
   const total = () => feedback.good + feedback.neutral + feedback.bad;
 
   const positiveFeedback = () => {
-    if (!total) {
-      return 0;
-    }
     const positive = Math.round((feedback.good * 100) / total());
     return positive;
   };
+
+  const optionKey = Object.keys(feedback);
 
   return (
     <FeedbackDiv>
