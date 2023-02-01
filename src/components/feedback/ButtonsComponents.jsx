@@ -9,7 +9,8 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       onClick={()=> onLeaveFeedback(option)}
       type="button"
     >
-      {option}
+      {option.split('')[0].toUpperCase() +
+        option.split('').slice(1).join('')}
     </ButtonFeedback>
   ));
 };
