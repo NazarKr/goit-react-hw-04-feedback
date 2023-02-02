@@ -1,6 +1,6 @@
 import React from 'react';
 import { FeedbeckText, FeedbackSpan } from './feedback.styled';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Statistics = ({
   good,
@@ -32,11 +32,11 @@ const Statistics = ({
 
 export default Statistics;
 
-Statistics.propTypes = {
-  total: PropTypes.number.isRequired,
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
-  title: PropTypes.string,
-}
+// Statistics.propTypes = {
+//   total: PropTypes.number.isRequired,
+//   good: PropTypes.number.isRequired,
+//   neutral: PropTypes.number.isRequired,
+//   bad: PropTypes.number.isRequired,
+//   positivePercentage: PropTypes.number.isRequired,
+//   title: PropTypes.string,
+// }
