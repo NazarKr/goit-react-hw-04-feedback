@@ -1,33 +1,38 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useState } from 'react';
 import { FeedbackDiv } from './feedback.styled';
 import FeedbackOptions from './ButtonsComponents';
 import Statistics from './Statistics';
-import Section from './Section'
-import Notification from './Notification'
+import Section from './Section';
+import Notification from './Notification';
 
-const Feedback = () => {
-  const [feedback, setFeedback] = useState({
+interface FeedbackState {
+  good: number;
+  neutral: number;
+  bad: number;
+}
+
+const Feedback: React.FC = () => {
+  const [feedback, setFeedback] = useState<FeedbackState>({
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
   });
 
-  const onLeaveFeedback = feedback => {
+  const onLeaveFeedback = (feedback: keyof FeedbackState) => {
     setFeedback(prevState => {
       const value = prevState[feedback];
-      return { ...prevState, [feedback]: value + 1 }
-    })
-  }
+      return { ...prevState, [feedback]: value + 1 };
+    });
+  };
 
-  const total = () => feedback.good + feedback.neutral + feedback.bad;
+  const total = (): number => feedback.good + feedback.neutral + feedback.bad;
 
-  const positiveFeedback = () => {
+  const positiveFeedback = (): number => {
     const positive = Math.round((feedback.good * 100) / total());
     return positive;
   };
 
-  const optionKey = Object.keys(feedback);
+  const optionKey = Object.keys(feedback) as Array<keyof FeedbackState>;
 
   return (
     <FeedbackDiv>
@@ -50,10 +55,9 @@ const Feedback = () => {
         </Section>
       )}
 
-      {total() === 0 &&
-        <Notification message="There is no feedback" />}
+      {total() === 0 && <Notification message="There is no feedback" />}
     </FeedbackDiv>
-  )
-}
+  );
+};
 
 export default Feedback;
